@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let str ='([{}])'
+          let bracketsConfig =[['(', ')'], ['[', ']'], ['{', '}']];
+          const config1 = [['(', ')']];
+const config2 = [['(', ')'], ['[', ']']];
+const config3 = [['(', ')'], ['[', ']'], ['{', '}']];
+const config4 = [['|', '|']];
+const config5 = [['(', ')'], ['|', '|']];
+const config6 = [['1', '2'], ['3', '4'], ['5', '6'], ['7', '7'], ['8', '8']];
+const config7 = [['(', ')'], ['[', ']'], ['{', '}'], ['|', '|']];
+        function check(str, bracketsConfig) {
+            let newBracketsConfig = bracketsConfig.map(function(item){
+return item.flat().join("")
+            })
+            console.log('newBracketsConfig',newBracketsConfig);
+
+
+            //for(let i = 0; i<newBracketsConfig.length; i++){
+                let result = 0
+                console.log('result',result);
+                while(result!=-1){
+                    let newstr=str
+                    for(let i = 0; i<newBracketsConfig.length; i++){
+                        newstr=newstr.replace(newBracketsConfig[i], '')
+                    }
+                    if(newstr==str){
+                        result=-1
+                    }else{
+                        str=newstr
+                    }
+               // result = str.indexOf(newBracketsConfig[i])
+                console.log('newStr',str);
+                }
+                if(str.length!=0){
+                return false
+                }else{
+                return true
+                }   
+                console.log('str', str);
+            //}
+
+
+
+
+}
+
+console.log('function check(str, bracketsConfig)',check(str, bracketsConfig));
+    </script>
+</body>
+</html>
